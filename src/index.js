@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './pages/home';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import CadastroVideo from './pages/cadastro/video';
+
+// Colocar um jogo nessa página: https://www.youtube.com/watch?v=jOAU81jdi-c :)
+const Pagina404 = () => (<div>Página 404</div>)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={App} exact />        
+        <Route path="/cadastro/video" component={ CadastroVideo } /> 
+        <Route component={Pagina404} />  
+      </Switch>
+    </BrowserRouter>  
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
